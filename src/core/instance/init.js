@@ -14,6 +14,9 @@ let uid = 0
 // Vue 的初始化逻辑写的非常清楚，
 // 把不同的功能逻辑拆成一些单独的函数执行，
 // 让主线逻辑一目了然，这样的编程思想是非常值得借鉴和学习的
+// Vue 初始化主要就干了几件事情，合并配置，初始化生命周期，初始化事件中心，
+// 初始化渲染，初始化 data、props、computed、watcher 等等。
+
 export function initMixin (Vue: Class<Component>) {
   Vue.prototype._init = function (options?: Object) {
     const vm: Component = this
