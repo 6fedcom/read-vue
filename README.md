@@ -5,7 +5,6 @@
 ## 准备工作
 
 Vue.js 的源码利用了 `Flow`(https://flow.org/en/docs/getting-started/) 做了静态类型检查,Vue.js 的源码都在 src 目录下，其目录结构如下
-![vue 源码目录![](http://cdn.ru23.com/common/link.svg)](http://cdn.ru23.com/vue-analysis/1.1vue%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95.jpg)
 
 ![1.vue 源码目录](http://cdn.ru23.com/vue-analysis/1.1vue%E6%BA%90%E7%A0%81%E7%9B%AE%E5%BD%95.jpg)
 
