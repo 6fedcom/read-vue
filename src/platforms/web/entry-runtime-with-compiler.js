@@ -49,9 +49,10 @@ Vue.prototype.$mount = function (
     //获取模板字符串
     let template = options.template
     if (template) {
-      if (typeof template === 'string') {
+      if (typeof template === 'string') {//模板是字符串
+        //模板第一个字符串为# 则判断该字符串为 dom的id
         if (template.charAt(0) === '#') {
-          template = idToTemplate(template)
+          template = idToTemplate(template)//获取字符串模板的innerHtml
           /* istanbul ignore if */
           if (process.env.NODE_ENV !== 'production' && !template) {
             warn(
@@ -60,30 +61,35 @@ Vue.prototype.$mount = function (
             )
           }
         }
-      } else if (template.nodeType) {
+      } else if (template.nodeType) {//如果template 是don节点 则获取他的html
         template = template.innerHTML
       } else {
+        //如果什么都是不是则发出警告
         if (process.env.NODE_ENV !== 'production') {
           warn('invalid template option:' + template, this)
         }
         return this
       }
     } else if (el) {
+      //如果模板没有，dom节点存在则获取dom节点中的html 给模板
       template = getOuterHTML(el)
     }
     if (template) {
       /* istanbul ignore if */
+      //监听性能监测
       if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
         mark('compile')
       }
-
-      const { render, staticRenderFns } = compileToFunctions(template, {
-        outputSourceRange: process.env.NODE_ENV !== 'production',
-        shouldDecodeNewlines,
-        shouldDecodeNewlinesForHref,
-        delimiters: options.delimiters,
-        comments: options.comments
-      }, this)
+      //创建模板
+      const { render, staticRenderFns } = compileToFunctions(
+        template//模板字符串
+        , {
+          outputSourceRange: process.env.NODE_ENV !== 'production',
+          shouldDecodeNewlines,//flase //IE在属性值中编码换行，而其他浏览器则不会
+          shouldDecodeNewlinesForHref,//true chrome在a[href]中编码内容
+          delimiters: options.delimiters,//改变纯文本插入分隔符。修改指令的书写风格，比如默认是{{mgs}}  delimiters: ['${', '}']之后变成这样 ${mgs}
+          comments: options.comments//当设为 true 时，将会保留且渲染模板中的 HTML 注释。默认行为是舍弃它们。
+        }, this)
       options.render = render
       options.staticRenderFns = staticRenderFns
 
