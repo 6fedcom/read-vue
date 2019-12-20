@@ -106,11 +106,14 @@ Vue.prototype.$mount = function (
 /**
  * Get outerHTML of elements, taking care
  * of SVG elements in IE as well.
+ * 获取 dom的html    //outerHTML  输出当前标签的本身和标签内的文本内容，
+ * 如果有子标签，那么子标签本身和标签内的文本内容也将一起输出
  */
 function getOuterHTML (el: Element): string {
   if (el.outerHTML) {
     return el.outerHTML
   } else {
+    //创建一个div节点 并且 包裹着el
     const container = document.createElement('div')
     container.appendChild(el.cloneNode(true))
     return container.innerHTML

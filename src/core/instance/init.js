@@ -23,7 +23,7 @@ export function initMixin (Vue: Class<Component>) {
     // a uid
     vm._uid = uid++
 
-    let startTag, endTag
+    let startTag, endTag //开始标签和结束标签
     /* istanbul ignore if */
     if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
       startTag = `vue-perf-start:${vm._uid}`
@@ -31,7 +31,7 @@ export function initMixin (Vue: Class<Component>) {
       mark(startTag)
     }
 
-    // a flag to avoid this being observed
+    // a flag to avoid this being observed 一个避免被观察到的标志
     vm._isVue = true
     // merge options 合并选项 参数
     if (options && options._isComponent) {
