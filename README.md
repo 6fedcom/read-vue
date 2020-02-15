@@ -1,8 +1,9 @@
 
 ## 文章目录
 
-1. [学习源码的好处 ![](http://cdn.ru23.com/common/link.svg)](/vue-code-analysis/1.Benefits of learning source code.md)
-2. 学习vue源码前的准备工作
+[学习源码的好处![](http://cdn.ru23.com/common/link.svg)](/vue-code-analysis/1.Benefits of learning source code.md)
+
+学习vue源码前的准备工作
 
 
 <!-- https://www.cnblogs.com/hao123456/p/10616356.html -->
